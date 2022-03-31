@@ -8,7 +8,7 @@ function App() {
   const [country, setCountry] = useState([]);
   const [selectCountry, setSelectCountry] = useState("");
   const [searchKey, setSearchKey] = useState("");
-  const [searchFilter, setSearchFilter] = useState("searchByName");
+  const [searchFilter, setSearchFilter] = useState("SearchByName");
 
   useEffect(() => {
     fetchCountry();
@@ -76,14 +76,14 @@ function App() {
   function onSearchRaidChange(event) {
     switch (event.target.value) {
       case "name":
-        setSearchFilter("searchByName");
+        setSearchFilter("SearchByName");
         break;
 
       case "wmi":
-        setSearchFilter("searchByWMI");
+        setSearchFilter("SearchByWMI");
         break;
       case "vehicleType":
-        setSearchFilter("searchByVehicleType");
+        setSearchFilter("SearchByVehicleType");
         break;
     }
   }
@@ -106,7 +106,7 @@ function App() {
               <div className="col-auto">
                 <input
                   type="text"
-                  placeholder="filter by name"
+                  placeholder={searchFilter}
                   onChange={onSearchInput}
                   className="form-control"
                 ></input>
@@ -141,7 +141,7 @@ function App() {
                   type="radio"
                   name="search-option"
                   onChange={onSearchRaidChange}
-                  checked={searchFilter === "searchByName"}
+                  checked={searchFilter === "SearchByName"}
                   value="name"
                 />{" "}
                 Name
@@ -151,7 +151,7 @@ function App() {
                   type="radio"
                   name="search-option"
                   onChange={onSearchRaidChange}
-                  checked={searchFilter === "searchByWMI"}
+                  checked={searchFilter === "SearchByWMI"}
                   value="wmi"
                 />{" "}
                 WMI
@@ -161,7 +161,7 @@ function App() {
                   type="radio"
                   name="search-option"
                   onChange={onSearchRaidChange}
-                  checked={searchFilter === "searchByVehicleType"}
+                  checked={searchFilter === "SearchByVehicleType"}
                   value="vehicleType"
                 />{" "}
                 Vehicle Type
